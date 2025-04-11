@@ -1,0 +1,303 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* background-color: #E7F6FF; */
+}
+
+a{
+  text-decoration: none;
+  color: white;
+}
+
+body, html {
+  overflow-x: hidden;
+  /* background-color: #E7F6FF; */
+}
+
+.mian-container{
+    height: 100vh;
+}
+
+.navbar-bg {
+    position: relative;
+    background: url('/Home Page Images/homepagebgimg.jpg') no-repeat center center;
+    background-size: cover;
+    z-index: 1;
+    height: 100vh;
+}
+
+.navbar-bg::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Adjust the 0.5 for more or less darkness */
+    z-index: 2;
+}
+
+.navbar-bg > * {
+    position: relative;
+    z-index: 3; /* Ensures the content is above the overlay */
+}
+
+.bg-text1{
+    font-size: 2rem;
+    color: #FFFFFF;
+    /* padding: ; */
+}
+
+.bg-text2{
+    color: #FFFFFF;
+    font-weight: 400;
+    font-size: 5rem;
+}
+
+.bg-text3{
+    color: #FFFFFF;
+    font-size: 1rem;
+}
+
+.custom-shop-btn {
+    background-color: #dc3545; /* Bootstrap's danger red */
+    color: #fff;
+    padding: 0.75rem 2rem; /* Similar to py-2 px-4 */
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 1.25rem; /* Equivalent to btn-lg */
+    border: none;
+    border-radius: 0.3rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+  
+.custom-shop-btn:hover {
+    background-color: #c82333; /* Darker red on hover */
+    transform: translateY(-2px); /* Slight lift effect */
+}
+  
+
+@keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .animated-text {
+    animation: fadeInUp 1s ease-in-out forwards;
+    opacity: 0; /* Start invisible */
+  }
+  
+  .animated-text:nth-child(1) {
+    animation-delay: 0.3s;
+  }
+  
+  .animated-text:nth-child(2) {
+    animation-delay: 0.6s;
+  }
+  
+  .animated-text:nth-child(3) {
+    animation-delay: 0.9s;
+  }
+  
+  @keyframes fadeInZoom {
+    from {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  .custom-shop-btn {
+    animation: fadeInZoom 0.8s ease-in-out forwards;
+    opacity: 0; /* Start hidden */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .custom-shop-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0.8rem 1.5rem rgba(0, 0, 0, 0.2);
+  }
+
+
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: "Segoe UI", sans-serif;
+    background-color: #f7f8fa;
+  }
+  
+ /* Grid layout: 3 carts in one row */
+.cart-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columns */
+  width: 100%;
+  gap: 2rem;
+  padding: 2rem;
+  /* background-color: #f2f5f7; */
+}
+
+
+/* Individual cart card styling */
+.cart-card {
+  background-color: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cart-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+}
+
+/* Product image styling */
+.cart-img {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+}
+
+/* Text inside cart */
+.cart-card p {
+  margin: 0.4rem 0;
+  font-size: 1rem;
+  color: #333;
+}
+
+.cart-card p:nth-child(2) {
+  font-weight: bold;
+  font-size: 1rem;
+  color: #212529;
+}
+
+.cart-card p:nth-child(3) {
+  font-size: 1.1rem;
+  /* color: #fad0c4; */
+  font-weight: bold;
+}
+
+/* Icons container */
+.cart-card-icons {
+  display: flex;
+  justify-content: center;
+  margin-top: 0.75rem;
+}
+
+/* Icon styles */
+.cart-card-icons a {
+  font-size: 1.3rem;
+  color: #6c757d;
+  padding: 0.4rem 0.6rem;
+  border-radius: 50%;
+  transition: background 0.3s, color 0.3s;
+}
+
+.cart-card-icons a:hover {
+  /* background-color: #FCB454; */
+  color: #fff;
+}
+
+.icon-btn {
+  background: linear-gradient(135deg, #ff4e50, #f00000); /* Red gradient */
+  border: none;
+  padding: 15px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(255, 0, 0, 0.3);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+}
+
+.icon-btn:hover {
+  transform: scale(1.15);
+  background: linear-gradient(135deg, #f00000, #ff4e50); /* Reverse gradient */
+  box-shadow: 0 6px 12px rgba(255, 0, 0, 0.5);
+}
+
+.icon-btn:hover {
+  animation: pulse 0.5s;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1.15); }
+}
+
+#shopnowBtn{
+  background: linear-gradient(135deg, #ff4e50, #f00000); /* Red gradient */
+  border: none;
+  padding: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(255, 0, 0, 0.3);
+  color: white;
+  font-size: 18px;
+}
+
+#shopnowBtn:hover{
+  transform: scale(1.15);
+  background: linear-gradient(135deg, #f00000, #ff4e50); /* Reverse gradient */
+  box-shadow: 0 6px 12px rgba(255, 0, 0, 0.5);
+}
+
+#readmoreBtn{
+  background: linear-gradient(135deg, #ff4e50, #f00000); /* Red gradient */
+  border: none;
+  padding: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(255, 0, 0, 0.3);
+  color: white;
+  font-size: 18px;
+}
+
+#readmoreBtn:hover{
+  transform: scale(1.15);
+  background: linear-gradient(135deg, #f00000, #ff4e50); /* Reverse gradient */
+  box-shadow: 0 6px 12px rgba(255, 0, 0, 0.5);
+}
+
+#aboutImg1, #aboutImg2 {
+  border-radius: 250px 250px 0 0;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  object-fit: cover;
+}
+
+#aboutImg2{
+  margin-top: 9.7rem;
+}
+
+#aboutText1{
+  font-size: 3rem;
+  text-align: center;
+}
+
+#aboutText2{
+  font-size: 1.2rem;
+}
+
+#aboutContainer{
+  margin-top: 5rem;
+}

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="home.css">
+    <!-- <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"> -->
+</head>
+<body>
+  <section id="homeContainer">
+    <div class="container-fluid navbar-bg main-container">
+        <nav class="navbar navbar-expand-lg bg-body-transparent py-3">
+          <div class="container-fluid">
+            <!-- Logo -->
+            <a class="navbar-brand text-white fw-bold" href="#">Logo</a>
+      
+            <!-- Toggler for mobile -->
+            <button class="navbar-toggler text-white border-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+      
+            <!-- Navbar Links -->
+            <div class="collapse navbar-collapse justify-content-center" id="navbarResponsive">
+              <ul class="navbar-nav d-flex flex-row flex-lg-row gap-3 text-center">
+                <li class="nav-item">
+                  <a class="nav-link active text-white" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active text-white" href="#">About</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active text-white" href="#">Shop</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active text-white" href="#">Contact</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active text-white" href="">Login</a>
+                </li>
+              </ul>
+            </div>
+      
+            <!-- Cart Button -->
+            <div class="d-none d-lg-block">
+              <button onclick="wishList()" class="btn btn-outline-light">
+                <a href="./wishlist.html"><i class="fa-solid fa-shield-heart"></i></a>
+              </button>
+              <button onclick="addToCart()" class="btn btn-outline-light">
+                <a href="./addcart.html"><i class="fa-solid fa-cart-shopping"></i></a>
+              </button>
+            </div>
+          </div>
+        </nav>
+      
+        <!-- Hero Section -->
+        <section class="container py-5 mt-5 text-center bg-image align-items-center text-white">
+          <div class="mb-3 animated-text">
+            <p class="h3 bg-text1">Welcome to Petal Whisper</p>
+          </div>
+          <div class="mb-4 animated-text">
+            <p class="h5 fw-bold lead bg-text2">Bringing joy to life with every bloom and gentle petal.</p>
+          </div>
+          <div class="mx-auto animated-text">
+            <p class="h4 bg-text3">
+              Step into a world of beauty, fragrance, and charm. From classic bouquets to modern arrangements, discover floral creations that celebrate love, joy, and every special moment in between. Let nature’s elegance brighten your day and bring your emotions to life — one bloom at a time.
+            </p>
+          </div>
+          <!-- Shop Now Button -->
+          <div class="text-center mt-5">
+            <button class="btn btn-lg px-4 py-2 fw-bold text-uppercase shadow custom-shop-btn" id="shopnowBtn">
+              <a href="./shopNow.html">SHOP NOW</a>
+            </button>
+          </div>
+        </section>
+    </div>
+    
+    <!-- About -->
+    
+    <section class="container py-5 mt-5">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-4 g-4">  
+            <div class="col">
+                <div class="card h-100 text-center shadow-sm p-3">
+                  <div class="card-body">
+                    <h4 class="card-title">01</h4>
+                    <h5 class="card-subtitle mb-2 text fw-bold">Order Online</h5>
+                    <p class="card-text">Share some details here. This is a flexible section where you can share anything you want.</p>
+                  </div>
+                </div>
+            </div>         
+          <div class="col">
+            <div class="card h-100 text-center shadow-sm p-3 animate__animated animate__fadeInUp">
+              <div class="card-body">
+                <h4 class="card-title">02</h4>
+                <h5 class="card-subtitle mb-2 text fw-bold">Free Shipping</h5>
+                <p class="card-text">Share some details here. This is a flexible section where you can share anything you want.</p>
+              </div>
+            </div>
+          </div>          
+          <div class="col">
+            <div class="card h-100 text-center shadow-sm p-3 animate__animated animate__fadeInUp">
+              <div class="card-body">
+                <h4 class="card-title">03</h4>
+                <h5 class="card-subtitle mb-2 text fw-bold">More Freshness</h5>
+                <p class="card-text">Share some details here. This is a flexible section where you can share anything you want.</p>
+              </div>
+            </div>
+          </div>          
+          <div class="col">
+            <div class="card h-100 text-center shadow-sm p-3 animate__animated animate__fadeInUp">
+              <div class="card-body">
+                <h4 class="card-title">04</h4>
+                <h5 class="card-subtitle mb-2 text fw-bold">Safe Payment</h5>
+                <p class="card-text">Share some details here. This is a flexible section where you can share anything you want.</p>
+              </div>
+            </div>
+          </div>      
+        </div>
+      </section>      
+      <section class="container-fluid py-5 mt-5" style="background-color: #FFFFFF;">
+        <div class="row align-items-center">
+          <!-- Text Content -->
+          <div class="col-lg-6 mb-4 mb-lg-0 text-center about-text" id="aboutContainer">
+            <h5 class="mb-3">About Florist</h5>
+            <h5 class="mb-4 fw-bold" id="aboutText1">Blossoming Your Special Moments with Nature's Finest</h5>
+            <p class="mb-4" id="aboutText2">
+              Welcome to Florist, where floral artistry meets passion for nature's beauty. Our story is rooted in a deep love for flowers and a commitment to creating unforgettable moments for our customers.
+            </p>
+            <button class="btn btn-danger text-uppercase px-4 py-2 fw-bold" id="readmoreBtn">Read More</button>
+          </div>
+      
+          <!-- Image Grid -->
+          <div class="col-lg-6">
+            <div class="row g-3">
+              <div class="col-7">
+                <img src="/Home Page Images/homeimages1.jpg" alt="Florist 1" class="img-fluid w-100 custom-img" id="aboutImg1"/>
+              </div>
+              <div class="col-5">
+                <img src="/Home Page Images/homeimages2.jpg" alt="Florist 2" class="img-fluid w-100 custom-img" id="aboutImg2"/>
+              </div>
+            </div>
+          </div>
+        </div>
+    </section>
+
+    <!-- New Arrivales -->
+    <div class="container-fluid mt-5">
+      <section class="container-fluid py-5 text-center">
+        <div>
+          <p class="text-uppercase fw-bold fs-5 mb-1">New Arrival</p>
+        </div>
+        <div>
+          <p class="fw-semibold fw-bold mb-2 text-center" style="font-size: 3rem;">Discover the Latest Additions at Your Top Choice Flower Shop</p>
+        </div>
+        <div class="mx-auto" style="max-width: 700px;">
+          <p class="fs-6">
+            Share some details here. This is a flexible section where you can share anything you want.
+          </p>
+        </div>
+      </section>
+      <section class="container text-center fw-bold" id="container1"></section>
+    </div> 
+  </section>   
+  <script src="home.js" crossorigin="anonymous">
+    // AOS.init();
+  </script>
+</body>
+</html>

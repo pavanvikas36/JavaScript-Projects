@@ -1,0 +1,87 @@
+#navbarMain{
+    position: fixed;
+    z-index: 1000;
+}
+
+/* Base styling */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 20px;
+}
+
+/* Grid layout */
+.cart-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Card styling */
+.amazon-cart-card {
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 15px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.amazon-cart-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Product image */
+.cart-img {
+    width: 100%;
+    height: 350px;
+    object-fit: contain;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+/* Text styling */
+.amazon-cart-card p {
+    margin: 6px 0;
+    font-size: 14px;
+    color: #333;
+}
+
+.amazon-cart-card p:first-of-type {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+/* Buttons */
+.cart-delete-btn,
+.cart-buy-btn {
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+}
+
+.cart-delete-btn {
+    background-color: #f44336;
+    color: white;
+}
+
+.cart-delete-btn:hover {
+    background-color: #d32f2f;
+}
+
+.cart-buy-btn {
+    background-color: #ff3e6c;
+    color: white;
+}
+
+.cart-buy-btn:hover {
+    background-color: #e91e63;
+}

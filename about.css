@@ -1,0 +1,53 @@
+.background-section {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Background image */
+  .background-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-image: url('./Home Page Images/aboutimage1.jpg'); /* Update path as needed */
+    background-size: cover;
+    background-position: center;
+    z-index: 1;
+  }
+  
+  /* Dark overlay */
+  .background-section::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 2;
+  }
+  
+  /* Navbar above background */
+  #navbarMain {
+    position: relative;
+    z-index: 3;
+  }
+  
+  /* Centered content */
+  .about-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+    max-width: 800px;
+    padding: 20px;
+  }
+
+  
+  

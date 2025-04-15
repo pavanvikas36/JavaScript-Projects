@@ -91,6 +91,7 @@ body {
   .icon-btn {
     background: linear-gradient(135deg, #ff4e50, #f00000); /* Red gradient */
     border: none;
+    margin: 0 1rem;
     padding: 1px;
     border-radius: 50%;
     cursor: pointer;

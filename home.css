@@ -21,7 +21,7 @@ body, html {
 
 .navbar-bg {
     position: relative;
-    background: url('/Home Page Images/homepagebgimg.jpg') no-repeat center center;
+    background: url('/Home Page Images/homebgimage.jpg') no-repeat center center;
     background-size: cover;
     z-index: 1;
     height: 100vh;

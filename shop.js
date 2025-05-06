@@ -1,161 +1,121 @@
 let shopContainer1 = document.getElementById("shopContainer1");
+let shopContainer2 = document.getElementById("shopContainer2");
+let shopContainer3 = document.getElementById("shopContainer3");
+let allGiftsBtn = document.getElementById("allGiftsBtn");
 
-async function getdata() {
-    let response = await fetch("https://project-carts.onrender.com/Gifts");
-    let result = await response.json();
-    console.log(result);
+function createCard(val, container) {
+    let addtocart = JSON.parse(localStorage.getItem("addtocartDetails")) || [];
+    let wishlist = JSON.parse(localStorage.getItem("wishlistDetails")) || [];
 
-    let addtocart = addtocartData = JSON.parse(localStorage.getItem("addtocartDetails")) || [];
-    result.forEach((val) => {
-        let parent = document.createElement("div");
-        let title = document.createElement("p");
-        let price = document.createElement("p");
-        let description = document.createElement("p");
-        let category = document.createElement("p");
-        let image = document.createElement("img");
-        let icon1 = document.createElement("a");
-        let icon2 = document.createElement("a");
-        let iconContainer = document.createElement("div");
-        let iconbtn1 = document.createElement("button");
-        let iconbtn2 = document.createElement("button");
+    let parent = document.createElement("div");
+    let title = document.createElement("p");
+    let price = document.createElement("p");
+    let description = document.createElement("p");
+    let category = document.createElement("p");
+    let image = document.createElement("img");
+    let icon1 = document.createElement("a");
+    let icon2 = document.createElement("a");
+    let iconContainer = document.createElement("div");
+    let iconbtn1 = document.createElement("button");
+    let iconbtn2 = document.createElement("button");
 
-        iconbtn1.addEventListener("click", function () {
+    iconbtn1.addEventListener("click", function () {
+        if (!addtocart.find(item => item.id === val.id)) {
             addtocart.push(val);
-            console.log(addtocart);
             localStorage.setItem("addtocartDetails", JSON.stringify(addtocart));
-        });
-
-        image.src = val.image;
-        image.classList.add("cart-img");
-        title.innerText = val.title;
-        price.innerHTML = `$ ${val.price}`;
-        category.innerText = val.category;
-        description.innerText = val.description;
-        icon1.innerHTML = `<i class="fa-solid fa-cart-shopping"></i>`;
-        icon2.innerHTML = `<i class="fa-solid fa-heart"></i>`;
-        iconContainer.classList.add("cart-card-icons");
-        iconContainer.append(icon1, icon2, iconbtn1, iconbtn2);
-        parent.classList.add("cart-card");
-        iconbtn1.classList.add("icon-btn");
-        iconbtn2.classList.add("icon-btn");
-        iconbtn1.append(icon1);
-        iconbtn2.append(icon2);
-        parent.append(image, category, title, price, iconContainer);
-        shopContainer1.append(parent);
+            alert("Item added to cart!");
+        } else {
+            alert("Item is already in the cart!");
+        }
     });
 
-    shopContainer1.classList.add("cart-grid");
-    document.body.append(shopContainer1);
+    iconbtn2.addEventListener("click", function () {
+        if (!wishlist.find(item => item.id === val.id)) {
+            wishlist.push(val);
+            localStorage.setItem("wishlistDetails", JSON.stringify(wishlist));
+            alert("Item added to wishlist!");
+        } else {
+            alert("Item is already in the wishlist!");
+        }
+    });
+
+    image.src = val.image;
+    image.classList.add("cart-img");
+    title.innerText = val.title;
+    price.innerHTML = `$ ${val.price}`;
+    category.innerText = val.category;
+    description.innerText = val.description;
+    icon1.innerHTML = `<i class="fa-solid fa-cart-shopping"></i>`;
+    icon2.innerHTML = `<i class="fa-solid fa-heart"></i>`;
+    iconContainer.classList.add("cart-card-icons");
+    iconContainer.append(iconbtn1, iconbtn2);
+    iconbtn1.classList.add("icon-btn");
+    iconbtn2.classList.add("icon-btn");
+    iconbtn1.append(icon1);
+    iconbtn2.append(icon2);
+    parent.classList.add("cart-card");
+    parent.append(image, category, title, price, iconContainer);
+    container.append(parent);
 }
 
-getdata();
+async function fetchAndRender(url, container, categoryFilter = '') {
+    try {
+        let response = await fetch(url);
+        let result = await response.json();
 
-// Art Gift
+        // Filter data if a category filter is applied
+        if (categoryFilter) {
+            result = result.filter(item => item.category === categoryFilter);
+        }
 
-let shopContainer2 = document.getElementById("shopContainer2");
+        result.forEach((val) => createCard(val, container));
 
-async function artGiftData(){
-    let response = await fetch("https://json-server-bkjj.onrender.com/Art-gifts");
-    let result = await response.json();
-    console.log(result);
+        container.classList.add("cart-grid");
+        document.body.append(container);
+    } catch (error) {
+        console.error(`Failed to fetch data from ${url}:`, error);
+    }
+}
 
-    let addtocart = addtocartData = JSON.parse(localStorage.getItem("addtocartDetails")) || [];
-    result.forEach((val) => {
-        let parent = document.createElement("div");
-        let title = document.createElement("p");
-        let price = document.createElement("p");
-        let description = document.createElement("p");
-        let category = document.createElement("p");
-        let image = document.createElement("img");
-        let icon1 = document.createElement("a");
-        let icon2 = document.createElement("a");
-        let iconContainer = document.createElement("div");
-        let iconbtn1 = document.createElement("button");
-        let iconbtn2 = document.createElement("button");
+// Fetch all gifts data initially
+fetchAndRender("https://project-carts.onrender.com/Gifts", shopContainer1);
+fetchAndRender("https://json-server-bkjj.onrender.com/Art-gifts", shopContainer2);
+fetchAndRender("https://json-server-bkjj.onrender.com/Couple-gifts", shopContainer3);
 
-        iconbtn1.addEventListener("click", function () {
-            addtocart.push(val);
-            console.log(addtocart);
-            localStorage.setItem("addtocartDetails", JSON.stringify(addtocart));
-        });
+// Button event listeners
+document.getElementById("momBtn").addEventListener("click", function () {
+    shopContainer1.innerHTML = '';  // Clear existing items
+    shopContainer2.innerHTML = '';
+    shopContainer3.innerHTML = '';
+    fetchAndRender("https://project-carts.onrender.com/Gifts", shopContainer1, 'Mom');
+    fetchAndRender("https://json-server-bkjj.onrender.com/Art-gifts", shopContainer2, 'Mom');
+    fetchAndRender("https://json-server-bkjj.onrender.com/Couple-gifts", shopContainer3, 'Mom');
+});
 
-        image.src = val.image;
-        image.classList.add("cart-img");
-        title.innerText = val.title;
-        price.innerHTML = `$ ${val.price}`;
-        category.innerText = val.category;
-        description.innerText = val.description;
-        icon1.innerHTML = `<i class="fa-solid fa-cart-shopping"></i>`;
-        icon2.innerHTML = `<i class="fa-solid fa-heart"></i>`;
-        iconContainer.classList.add("cart-card-icons");
-        iconContainer.append(icon1, icon2, iconbtn1, iconbtn2);
-        parent.classList.add("cart-card");
-        iconbtn1.classList.add("icon-btn");
-        iconbtn2.classList.add("icon-btn");
-        iconbtn1.append(icon1);
-        iconbtn2.append(icon2);
-        parent.append(image, category, title, price, iconContainer);
-        shopContainer2.append(parent);
-    });
+document.getElementById("artBtn").addEventListener("click", function () {
+    shopContainer1.innerHTML = '';  // Clear existing items
+    shopContainer2.innerHTML = '';
+    shopContainer3.innerHTML = '';
+    fetchAndRender("https://project-carts.onrender.com/Gifts", shopContainer1, 'Art');
+    fetchAndRender("https://json-server-bkjj.onrender.com/Art-gifts", shopContainer2, 'Art');
+    fetchAndRender("https://json-server-bkjj.onrender.com/Couple-gifts", shopContainer3, 'Art');
+});
 
-    shopContainer2.classList.add("cart-grid");
-    document.body.append(shopContainer2);
-};
-artGiftData()
+document.getElementById("coupleBtn").addEventListener("click", function () {
+    shopContainer1.innerHTML = '';  // Clear existing items
+    shopContainer2.innerHTML = '';
+    shopContainer3.innerHTML = '';
+    fetchAndRender("https://project-carts.onrender.com/Gifts", shopContainer1, 'Couple');
+    fetchAndRender("https://json-server-bkjj.onrender.com/Art-gifts", shopContainer2, 'Couple');
+    fetchAndRender("https://json-server-bkjj.onrender.com/Couple-gifts", shopContainer3, 'Couple');
+});
 
-// Couple Gift
-
-let shopContainer3 = document.getElementById("shopContainer3");
-
-async function coupleGiftData(){
-    let response = await fetch("https://json-server-bkjj.onrender.com/Couple-gifts");
-    let result = await response.json();
-    console.log(result);
-
-    let addtocart = addtocartData = JSON.parse(localStorage.getItem("addtocartDetails")) || [];
-    result.forEach((val) => {
-        let parent = document.createElement("div");
-        let title = document.createElement("p");
-        let price = document.createElement("p");
-        let description = document.createElement("p");
-        let category = document.createElement("p");
-        let image = document.createElement("img");
-        let icon1 = document.createElement("a");
-        let icon2 = document.createElement("a");
-        let iconContainer = document.createElement("div");
-        let iconbtn1 = document.createElement("button");
-        let iconbtn2 = document.createElement("button");
-
-        iconbtn1.addEventListener("click", function () {
-            addtocart.push(val);
-            console.log(addtocart);
-            localStorage.setItem("addtocartDetails", JSON.stringify(addtocart));
-        });
-
-        image.src = val.image;
-        image.classList.add("cart-img");
-        title.innerText = val.title;
-        price.innerHTML = `$ ${val.price}`;
-        category.innerText = val.category;
-        description.innerText = val.description;
-        icon1.innerHTML = `<i class="fa-solid fa-cart-shopping"></i>`;
-        icon2.innerHTML = `<i class="fa-solid fa-heart"></i>`;
-        iconContainer.classList.add("cart-card-icons");
-        iconContainer.append(icon1, icon2, iconbtn1, iconbtn2);
-        parent.classList.add("cart-card");
-        iconbtn1.classList.add("icon-btn");
-        iconbtn2.classList.add("icon-btn");
-        iconbtn1.append(icon1);
-        iconbtn2.append(icon2);
-        parent.append(image, category, title, price, iconContainer);
-        shopContainer3.append(parent);
-    });
-
-    shopContainer3.classList.add("cart-grid");
-    document.body.append(shopContainer3);
-};
-coupleGiftData()
-
-function addToCart() {
-    window.location.href = "./addtocart.html";
-};
+// Display all gifts when the "All Gifts" button is clicked
+allGiftsBtn.addEventListener("click", function () {
+    shopContainer1.innerHTML = '';  // Clear existing items
+    shopContainer2.innerHTML = '';
+    shopContainer3.innerHTML = '';
+    fetchAndRender("https://project-carts.onrender.com/Gifts", shopContainer1);
+    fetchAndRender("https://json-server-bkjj.onrender.com/Art-gifts", shopContainer2);
+    fetchAndRender("https://json-server-bkjj.onrender.com/Couple-gifts", shopContainer3);
+});

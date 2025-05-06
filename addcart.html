@@ -43,11 +43,11 @@
         
               <!-- Cart Button -->
               <div class="d-none d-lg-block">
-                <button onclick="addToCart()" class="btn btn-outline-light">
-                  <i class="fa-solid fa-shield-heart"></i>
+                <button onclick="wishList()" class="btn btn-outline-light">
+                  <a href="./wishlist.html"><i class="fa-solid fa-heart"></i></a>
                 </button>
                 <button onclick="addToCart()" class="btn btn-outline-light">
-                  <i class="fa-solid fa-cart-shopping"></i>
+                  <a href="./addcart.html"><i class="fa-solid fa-cart-shopping"></i></a>
                 </button>
               </div>
             </div>
@@ -72,7 +72,7 @@
       <div class="container text-center border rounded p-4 shadow-sm">
         <h4 class="mb-3">Total</h4>
         <p id="totalPrice" class="h5 mb-4">₹0</p>
-        <button class="btn btn-primary btn-lg">Proceed To Buy</button>
+        <a href="payment.html" class="btn btn-primary btn-lg" id="proceedBtn">Proceed To Buy</a>
       </div>
     </section>          
     <script src="addcart.js"></script>

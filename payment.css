@@ -1,0 +1,73 @@
+/* Reset and font */
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(120deg, #f6f9fc, #e9eff5);
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  /* Card container */
+  .card {
+    background: #ffffff;
+    border: none;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Heading */
+  h2 {
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 30px;
+  }
+  
+  /* Form labels */
+  .form-label {
+    font-weight: 500;
+    color: #333;
+  }
+  
+  /* Form inputs */
+  .form-control {
+    border: 1px solid #dfe6e9;
+    border-radius: 12px;
+    padding: 10px 15px;
+    font-size: 16px;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .form-control:focus {
+    border-color: #5dade2;
+    box-shadow: 0 0 0 4px rgba(93, 173, 226, 0.2);
+  }
+  
+  /* Pay button */
+  .btn-primary {
+    background: #3498db;
+    border: none;
+    border-radius: 12px;
+    padding: 12px;
+    font-size: 18px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+  
+  .btn-primary:hover {
+    background: #2980b9;
+    box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
+  }
+  
+  /* Message output */
+  #message {
+    font-size: 16px;
+    font-weight: 500;
+  }
+  
+  .text-success {
+    color: #27ae60;
+  }
+  
+  .text-danger {
+    color: #e74c3c;
+  }
+  

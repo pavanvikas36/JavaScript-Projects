@@ -159,3 +159,5 @@ apidata()
 function readmoreBtn(){
     window.location.href = "./about.html"
 }
+
+localStorage.setItem("isLoggedIn", "true"); // or "false"
